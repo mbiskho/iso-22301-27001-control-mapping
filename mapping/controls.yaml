@@ -1,0 +1,68 @@
+# Requirement → evidence. frequency_days = how old the newest matching file may be.
+# Titles are paraphrased for reference; see the standards for the authoritative wording.
+requirements:
+  # ---------------- ISO 22301:2019 ----------------
+  - { id: "22301-4.3", standard: iso22301, title: Scope of the BCMS, evidence: [
+      { name: BCMS scope statement, owner: BCM manager, frequency_days: 365, pattern: "policy/bcms-scope-*.md", source: manual } ] }
+  - { id: "22301-5.2", standard: iso22301, title: Business continuity policy, evidence: [
+      { name: Approved BC policy, owner: COO, frequency_days: 365, pattern: "policy/bc-policy-*.pdf", source: manual } ] }
+  - { id: "22301-6.2", standard: iso22301, title: Business continuity objectives, evidence: [
+      { name: BC objectives with measures, owner: BCM manager, frequency_days: 365, pattern: "policy/bc-objectives-*.md", source: manual } ] }
+  - { id: "22301-7.2", standard: iso22301, title: Competence, evidence: [
+      { name: BC training records, owner: HR, frequency_days: 365, pattern: "training/bc-training-*.csv", source: manual } ] }
+  - { id: "22301-7.4", standard: iso22301, title: Communication, evidence: [
+      { name: Crisis communication plan, owner: Communications, frequency_days: 365, pattern: "plans/crisis-comms-*.md", source: manual } ] }
+  - { id: "22301-8.2.2", standard: iso22301, title: Business impact analysis, evidence: [
+      { name: BIA report with RTO/RPO per process, owner: BCM manager, frequency_days: 365, pattern: "bia/bia-report-*.md", source: business-impact-analysis-toolkit } ] }
+  - { id: "22301-8.2.3", standard: iso22301, title: Risk assessment, evidence: [
+      { name: Disruption risk assessment, owner: Risk, frequency_days: 365, pattern: "risk/disruption-risk-*.md", source: manual },
+      { name: Third-party resilience report, owner: Vendor management, frequency_days: 365, pattern: "vendors/vendor-report-*.md", source: third-party-resilience-assessment } ] }
+  - { id: "22301-8.3", standard: iso22301, title: Business continuity strategies and solutions, evidence: [
+      { name: Multi-region failover design, owner: Platform, frequency_days: 365, pattern: "failover/architecture-*.md", source: multi-region-failover-architecture } ] }
+  - { id: "22301-8.4", standard: iso22301, title: Business continuity plans and procedures, evidence: [
+      { name: DR runbook index (lint-clean), owner: Platform, frequency_days: 90, pattern: "runbooks/INDEX-*.md", source: dr-runbook-library } ] }
+  - { id: "22301-8.5", standard: iso22301, title: Exercise programme, evidence: [
+      { name: Crisis exercise after-action report, owner: BCM manager, frequency_days: 180, pattern: "exercises/after-action-*.md", source: crisis-simulation-programme },
+      { name: Failover test record, owner: Platform, frequency_days: 180, pattern: "failover/failover-test-*.md", source: multi-region-failover-architecture },
+      { name: Chaos experiment results, owner: SRE, frequency_days: 90, pattern: "chaos/*.json", source: chaos-engineering-programme } ] }
+  - { id: "22301-8.6", standard: iso22301, title: Evaluation of BC documentation and capabilities, evidence: [
+      { name: Restore verification history, owner: Platform, frequency_days: 7, pattern: "restore/restore-*.json", source: automated-restore-verification } ] }
+  - { id: "22301-9.2", standard: iso22301, title: Internal audit, evidence: [
+      { name: BCMS internal audit report, owner: Internal audit, frequency_days: 365, pattern: "audit/bcms-internal-audit-*.pdf", source: manual } ] }
+  - { id: "22301-9.3", standard: iso22301, title: Management review, evidence: [
+      { name: Management review minutes, owner: COO, frequency_days: 365, pattern: "audit/management-review-*.md", source: manual } ] }
+  - { id: "22301-10.1", standard: iso22301, title: Nonconformity and corrective action, evidence: [
+      { name: Corrective action log, owner: BCM manager, frequency_days: 90, pattern: "audit/corrective-actions-*.csv", source: manual } ] }
+
+  # ---------------- ISO/IEC 27001:2022 Annex A ----------------
+  - { id: "27001-A.5.19", standard: iso27001, title: Information security in supplier relationships, evidence: [
+      { name: Supplier inventory with criticality, owner: Vendor management, frequency_days: 180, pattern: "vendors/vendor-report-*.md", source: third-party-resilience-assessment } ] }
+  - { id: "27001-A.5.20", standard: iso27001, title: Addressing information security within supplier agreements, evidence: [
+      { name: Contract clause review for critical vendors, owner: Legal, frequency_days: 365, pattern: "vendors/contract-review-*.md", source: manual } ] }
+  - { id: "27001-A.5.21", standard: iso27001, title: Managing information security in the ICT supply chain, evidence: [
+      { name: Concentration risk findings, owner: Vendor management, frequency_days: 365, pattern: "vendors/vendor-report-*.md", source: third-party-resilience-assessment } ] }
+  - { id: "27001-A.5.22", standard: iso27001, title: "Monitoring, review and change management of supplier services", evidence: [
+      { name: Vendor reassessment results, owner: Vendor management, frequency_days: 365, pattern: "vendors/vendor-report-*.md", source: third-party-resilience-assessment } ] }
+  - { id: "27001-A.5.23", standard: iso27001, title: Information security for use of cloud services, evidence: [
+      { name: Cloud provider resilience review, owner: Platform, frequency_days: 365, pattern: "vendors/cloud-review-*.md", source: manual } ] }
+  - { id: "27001-A.5.24", standard: iso27001, title: Incident management planning and preparation, evidence: [
+      { name: Incident response runbooks, owner: Security, frequency_days: 90, pattern: "runbooks/INDEX-*.md", source: dr-runbook-library } ] }
+  - { id: "27001-A.5.25", standard: iso27001, title: Assessment and decision on information security events, evidence: [
+      { name: Exercise decision timings, owner: Security, frequency_days: 180, pattern: "exercises/after-action-*.md", source: crisis-simulation-programme } ] }
+  - { id: "27001-A.5.26", standard: iso27001, title: Response to information security incidents, evidence: [
+      { name: Ransomware exercise report, owner: Security, frequency_days: 365, pattern: "exercises/after-action-ransomware-*.md", source: crisis-simulation-programme } ] }
+  - { id: "27001-A.5.27", standard: iso27001, title: Learning from information security incidents, evidence: [
+      { name: Post-incident reviews, owner: Security, frequency_days: 180, pattern: "incidents/pir-*.md", source: manual } ] }
+  - { id: "27001-A.5.28", standard: iso27001, title: Collection of evidence, evidence: [
+      { name: Forensic evidence procedure, owner: Security, frequency_days: 365, pattern: "plans/evidence-procedure-*.md", source: manual } ] }
+  - { id: "27001-A.5.29", standard: iso27001, title: Information security during disruption, evidence: [
+      { name: Security controls in DR runbooks, owner: Security, frequency_days: 90, pattern: "runbooks/INDEX-*.md", source: dr-runbook-library } ] }
+  - { id: "27001-A.5.30", standard: iso27001, title: ICT readiness for business continuity, evidence: [
+      { name: RTO/RPO targets per system, owner: BCM manager, frequency_days: 365, pattern: "bia/bia-report-*.md", source: business-impact-analysis-toolkit },
+      { name: Failover test record, owner: Platform, frequency_days: 180, pattern: "failover/failover-test-*.md", source: multi-region-failover-architecture },
+      { name: Chaos experiment results, owner: SRE, frequency_days: 90, pattern: "chaos/*.json", source: chaos-engineering-programme } ] }
+  - { id: "27001-A.8.13", standard: iso27001, title: Information backup, evidence: [
+      { name: Nightly restore verification, owner: Platform, frequency_days: 2, pattern: "restore/restore-*.json", source: automated-restore-verification } ] }
+  - { id: "27001-A.8.14", standard: iso27001, title: Redundancy of information processing facilities, evidence: [
+      { name: Multi-region architecture, owner: Platform, frequency_days: 365, pattern: "failover/architecture-*.md", source: multi-region-failover-architecture },
+      { name: Failover test record, owner: Platform, frequency_days: 180, pattern: "failover/failover-test-*.md", source: multi-region-failover-architecture } ] }
